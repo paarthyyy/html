@@ -1,0 +1,20 @@
+:root {
+  --brand: #6c3fc4;
+  --accent: #17b8a6;
+  --ink: #28304d;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--brand);
+}
+
+.cta {
+  background-color: var(--accent);
+}
