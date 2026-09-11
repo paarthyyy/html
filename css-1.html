@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Box Model: content-box vs border-box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f6f8;
+      color: #333;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    .demo-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+
+    /* Common rules for both demo boxes */
+    .box {
+      width: 300px;
+      height: 100px;
+      padding: 20px;
+      border: 10px solid #e74c3c;
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    /* Standard content-box (Default CSS behavior) */
+    .content-box {
+      box-sizing: content-box;
+    }
+
+    /* Practical border-box */
+    .border-box {
+      box-sizing: border-box;
+    }
+
+    .formula {
+      background-color: #eef2f5;
+      padding: 10px 15px;
+      border-left: 4px solid #3498db;
+      font-family: monospace;
+      margin-bottom: 15px;
+    }
+
+    code {
+      background-color: #e0e0e0;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Box Sizing Practical Demo</h1>
+  <p>Both boxes below have identical styling: <code>width: 300px</code>, <code>padding: 20px</code>, and <code>border: 10px solid</code>.</p>
+
+  <!-- Section 1: content-box -->
+  <div class="demo-container">
+    <h2>1. box-sizing: content-box (Default)</h2>
+    <p>The width applies <strong>only to the content</strong>. Padding and borders are added to the outside, making the final element larger than 300px.</p>
+    
+    <div class="formula">
+      Rendered Width = 300px (width) + 40px (padding) + 20px (border) = <strong>360px</strong>
+    </div>
+
+    <div class="box content-box">
+      I am a content-box!<br>
+      Rendered width: 360pxS
+    </div>
+  </div>
+
+  <!-- Section 2: border-box -->
+  <div class="demo-container">
+    <h2>2. box-sizing: border-box (Recommended)</h2>
+    <p>The width includes the <strong>content, padding, and border</strong>. Padding and borders shrink the content area so the outer box remains exactly 300px.</p>
+
+    <div class="formula">
+      Rendered Width = Declared Width = <strong>300px</strong>
+    </div>
+
+    <div class="box border-box">
+      I am a border-box!<br>
+      Rendered width: 300px
+    </div>
+  </div>
+
+  <!-- Section 3: Recommended CSS Reset -->
+  <div class="demo-container">
+    <h2>Best Practice: Global Reset</h2>
+    <p>In modern web development, it is common to apply <code>border-box</code> globally using the universal selector so all elements behave predictably:</p>
+    <pre><code>* {
+  box-sizing: border-box;
+}</code></pre>
+  </div>
+
+</body>
+</html>
